@@ -8,7 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
 :root {
   --bg: #0B0F1A;
   --surface: #111827;
@@ -30,10 +30,10 @@
   --radius: 12px;
   --radius-sm: 8px;
 }
- 
+
 html { font-family: var(--font); background: var(--bg); color: var(--text); font-size: 14px; }
 body { min-height: 100vh; display: flex; }
- 
+
 /* ── SIDEBAR ─────────────────────────────────────── */
 .sidebar {
   width: 220px; min-height: 100vh; background: var(--surface);
@@ -45,7 +45,7 @@ body { min-height: 100vh; display: flex; }
 }
 .logo-mark { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; color: var(--text3); text-transform: uppercase; margin-bottom: 4px; }
 .logo-title { font-size: 15px; font-weight: 600; color: var(--text); }
- 
+
 .nav { padding: 12px 0; flex: 1; }
 .nav-section { padding: 16px 20px 6px; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text3); }
 .nav-item {
@@ -56,22 +56,22 @@ body { min-height: 100vh; display: flex; }
 .nav-item:hover { color: var(--text); background: rgba(255,255,255,0.04); }
 .nav-item.active { color: var(--text); background: rgba(59,130,246,0.1); border-left-color: var(--elation); }
 .nav-item .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
- 
+
 .sidebar-footer { padding: 16px 20px; border-top: 1px solid var(--border); }
 .refresh-info { font-size: 11px; color: var(--text3); }
 .refresh-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--eliminator); margin-right: 6px; animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
- 
+
 /* ── MAIN ─────────────────────────────────────────── */
 .main { margin-left: 220px; flex: 1; min-height: 100vh; display: flex; flex-direction: column; }
- 
+
 .topbar {
   padding: 16px 32px; background: var(--surface); border-bottom: 1px solid var(--border);
   display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50;
 }
 .page-title { font-size: 17px; font-weight: 600; color: var(--text); }
 .page-subtitle { font-size: 12px; color: var(--text3); margin-top: 2px; }
- 
+
 .topbar-right { display: flex; align-items: center; gap: 12px; }
 .date-pill {
   padding: 7px 14px; background: var(--surface2); border: 1px solid var(--border2);
@@ -79,17 +79,17 @@ body { min-height: 100vh; display: flex; }
   display: flex; align-items: center; gap: 6px;
 }
 .date-pill:hover { border-color: var(--elation); color: var(--text); }
- 
+
 .filter-pill {
   padding: 7px 14px; background: var(--surface2); border: 1px solid var(--border2);
   border-radius: 20px; font-size: 12px; color: var(--text2); cursor: pointer;
   display: flex; align-items: center; gap: 6px;
 }
 .filter-pill.active { border-color: var(--elation); color: var(--elation); background: rgba(59,130,246,0.1); }
- 
+
 /* ── CONTENT ─────────────────────────────────────── */
 .content { padding: 28px 32px; flex: 1; }
- 
+
 /* ── KPI GRID ────────────────────────────────────── */
 .kpi-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-bottom: 24px; }
 .kpi-card {
@@ -107,13 +107,13 @@ body { min-height: 100vh; display: flex; }
 .kpi-delta { font-size: 11px; font-weight: 500; }
 .kpi-delta.up { color: var(--eliminator); }
 .kpi-delta.down { color: var(--magmatic); }
- 
+
 /* ── CHART GRID ─────────────────────────────────── */
 .chart-row { display: grid; gap: 14px; margin-bottom: 24px; }
 .chart-row.two-col { grid-template-columns: 2fr 1fr; }
 .chart-row.three-col { grid-template-columns: 1fr 1fr 1fr; }
 .chart-row.half { grid-template-columns: 1fr 1fr; }
- 
+
 .card {
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
 }
@@ -125,7 +125,7 @@ body { min-height: 100vh; display: flex; }
 .card-meta { font-size: 11px; color: var(--text3); }
 .card-body { padding: 20px; }
 .card-body.no-pad { padding: 0; }
- 
+
 /* ── TABLE ───────────────────────────────────────── */
 .data-table { width: 100%; border-collapse: collapse; font-size: 12px; }
 .data-table th {
@@ -148,7 +148,7 @@ body { min-height: 100vh; display: flex; }
   text-transform: uppercase;
 }
 .data-table .rank { color: var(--text3); font-variant-numeric: tabular-nums; font-size: 11px; }
- 
+
 /* ── FUNNEL ─────────────────────────────────────── */
 .funnel { display: flex; flex-direction: column; gap: 6px; padding: 20px; }
 .funnel-step { display: flex; align-items: center; gap: 14px; }
@@ -160,7 +160,7 @@ body { min-height: 100vh; display: flex; }
 }
 .funnel-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); width: 90px; text-align: right; }
 .funnel-pct { font-size: 11px; color: var(--text3); width: 50px; text-align: right; }
- 
+
 /* ── PACING ─────────────────────────────────────── */
 .pacing-row { padding: 14px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 16px; }
 .pacing-row:last-child { border-bottom: none; }
@@ -175,7 +175,7 @@ body { min-height: 100vh; display: flex; }
   display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 600;
   letter-spacing: 0.05em; text-transform: uppercase;
 }
- 
+
 /* ── ALERTS ─────────────────────────────────────── */
 .alert-item {
   display: flex; align-items: flex-start; gap: 12px; padding: 12px 20px;
@@ -187,7 +187,7 @@ body { min-height: 100vh; display: flex; }
 .alert-title { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
 .alert-desc { font-size: 11px; color: var(--text3); line-height: 1.5; }
 .alert-tag { padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; flex-shrink: 0; margin-top: 2px; }
- 
+
 /* ── BRAND PAGE ─────────────────────────────────── */
 .brand-header {
   border-radius: var(--radius); padding: 24px 28px; margin-bottom: 24px;
@@ -197,7 +197,7 @@ body { min-height: 100vh; display: flex; }
 }
 .brand-header-name { font-size: 28px; font-weight: 600; }
 .brand-header-meta { font-size: 12px; color: var(--text3); margin-top: 4px; }
- 
+
 /* ── TABS ────────────────────────────────────────── */
 .tab-bar { display: flex; gap: 2px; margin-bottom: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 4px; width: fit-content; }
 .tab {
@@ -206,11 +206,11 @@ body { min-height: 100vh; display: flex; }
 }
 .tab.active { background: var(--surface3); color: var(--text); }
 .tab:hover:not(.active) { color: var(--text2); }
- 
+
 /* ── PAGE SWITCHER ───────────────────────────────── */
 .page { display: none; }
 .page.active { display: block; }
- 
+
 /* ── ORGANIC METRICS ─────────────────────────────── */
 .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
 .social-card {
@@ -222,10 +222,10 @@ body { min-height: 100vh; display: flex; }
 .social-platform-name { font-size: 12px; font-weight: 600; color: var(--text3); letter-spacing: 0.05em; text-transform: uppercase; }
 .social-metric { font-size: 28px; font-weight: 500; color: var(--text); }
 .social-label { font-size: 11px; color: var(--text3); }
- 
+
 /* ── MINI CHART ──────────────────────────────────── */
 .mini-chart-wrap { height: 200px; position: relative; }
- 
+
 /* ── SCROLLBAR ───────────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -233,14 +233,14 @@ body { min-height: 100vh; display: flex; }
 </style>
 </head>
 <body>
- 
+
 <!-- Loading overlay -->
 <div id="loadingOverlay" style="display:none;position:fixed;inset:0;background:rgba(11,15,26,0.92);z-index:9999;align-items:center;justify-content:center;flex-direction:column;gap:16px">
   <div style="width:40px;height:40px;border:3px solid rgba(59,130,246,0.2);border-top-color:#3B82F6;border-radius:50%;animation:spin 0.8s linear infinite"></div>
   <div class="load-msg" style="font-size:13px;color:#8896B3;letter-spacing:0.05em">Loading…</div>
 </div>
 <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
- 
+
 <!-- ═══════════════ SIDEBAR ═══════════════ -->
 <nav class="sidebar">
   <div class="logo">
@@ -255,7 +255,7 @@ body { min-height: 100vh; display: flex; }
     <div class="nav-item" onclick="showPage('pacing')">
       <span>◎</span> Pacing
     </div>
- 
+
     <div class="nav-section">Brands</div>
     <div class="nav-item" onclick="showPage('elation')">
       <span class="dot" style="background:var(--elation)"></span> Elation
@@ -269,7 +269,7 @@ body { min-height: 100vh; display: flex; }
     <div class="nav-item" onclick="showPage('eliminator')">
       <span class="dot" style="background:var(--eliminator)"></span> Eliminator
     </div>
- 
+
     <div class="nav-section">Alerts</div>
     <div class="nav-item" onclick="showPage('alerts')">
       <span>△</span> Efficiency Flags
@@ -281,10 +281,10 @@ body { min-height: 100vh; display: flex; }
     </div>
   </div>
 </nav>
- 
+
 <!-- ═══════════════ MAIN ═══════════════════ -->
 <main class="main">
- 
+
   <!-- TOPBAR -->
   <div class="topbar">
     <div>
@@ -296,10 +296,10 @@ body { min-height: 100vh; display: flex; }
       <div class="filter-pill" id="brandFilter">All brands ▾</div>
     </div>
   </div>
- 
+
   <!-- ═══════ PAGE: OVERVIEW ═══════════════ -->
   <div class="content page active" id="page-overview">
- 
+
     <!-- KPI Row -->
     <div class="kpi-grid">
       <div class="kpi-card" style="--accent:var(--elation)">
@@ -333,7 +333,7 @@ body { min-height: 100vh; display: flex; }
         <div class="kpi-sub kpi-delta up">↓ 6% cost</div>
       </div>
     </div>
- 
+
     <!-- Charts Row 1 -->
     <div class="chart-row two-col">
       <div class="card">
@@ -355,7 +355,7 @@ body { min-height: 100vh; display: flex; }
         </div>
       </div>
     </div>
- 
+
     <!-- Charts Row 2 -->
     <div class="chart-row three-col">
       <div class="card">
@@ -419,7 +419,7 @@ body { min-height: 100vh; display: flex; }
         </div>
       </div>
     </div>
- 
+
     <!-- Top Ads Table -->
     <div class="card">
       <div class="card-header">
@@ -448,7 +448,7 @@ body { min-height: 100vh; display: flex; }
       </div>
     </div>
   </div>
- 
+
   <!-- ═══════ PAGE: PACING ═══════════════ -->
   <div class="content page" id="page-pacing">
     <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr)">
@@ -473,7 +473,7 @@ body { min-height: 100vh; display: flex; }
         <div class="kpi-sub kpi-delta down">Underpacing</div>
       </div>
     </div>
- 
+
     <div class="chart-row half">
       <div class="card">
         <div class="card-header">
@@ -493,7 +493,7 @@ body { min-height: 100vh; display: flex; }
         </div>
       </div>
     </div>
- 
+
     <div class="card">
       <div class="card-header">
         <div class="card-title">Pacing Detail by Brand</div>
@@ -502,7 +502,7 @@ body { min-height: 100vh; display: flex; }
       <div id="pacingRows"></div>
     </div>
   </div>
- 
+
   <!-- ═══════ PAGE: ELATION ═══════════════ -->
   <div class="content page" id="page-elation">
     <div class="brand-header" style="background:linear-gradient(135deg,rgba(59,130,246,0.15) 0%,transparent 60%);border-color:rgba(59,130,246,0.25)">
@@ -515,7 +515,7 @@ body { min-height: 100vh; display: flex; }
         <div class="tab" onclick="switchTab('elation','organic',this)">Organic</div>
       </div>
     </div>
- 
+
     <div id="elation-paid">
       <div class="kpi-grid">
         <div class="kpi-card" style="--accent:var(--elation)"><div class="kpi-label">Spend</div><div class="kpi-value">$6.9K</div><div class="kpi-sub">All time</div></div>
@@ -540,7 +540,7 @@ body { min-height: 100vh; display: flex; }
         <div class="card-body no-pad"><table class="data-table"><thead><tr><th>#</th><th>Ad Name</th><th>Campaign</th><th class="right">Spend</th><th class="right">Impressions</th><th class="right">CTR</th><th class="right">CPC</th><th class="right">Leads</th></tr></thead><tbody id="elationAdsTable"></tbody></table></div>
       </div>
     </div>
- 
+
     <div id="elation-organic" style="display:none">
       <div class="social-grid">
         <div class="social-card">
@@ -581,7 +581,7 @@ body { min-height: 100vh; display: flex; }
       </div>
     </div>
   </div>
- 
+
   <!-- ═══════ PAGE: OBSIDIAN ═══════════════ -->
   <div class="content page" id="page-obsidian">
     <div class="brand-header" style="background:linear-gradient(135deg,rgba(168,85,247,0.15) 0%,transparent 60%);border-color:rgba(168,85,247,0.25)">
@@ -617,7 +617,7 @@ body { min-height: 100vh; display: flex; }
       </div>
     </div>
   </div>
- 
+
   <!-- ═══════ PAGE: MAGMATIC ════════════════ -->
   <div class="content page" id="page-magmatic">
     <div class="brand-header" style="background:linear-gradient(135deg,rgba(239,68,68,0.15) 0%,transparent 60%);border-color:rgba(239,68,68,0.25)">
@@ -649,7 +649,7 @@ body { min-height: 100vh; display: flex; }
       </div>
     </div>
   </div>
- 
+
   <!-- ═══════ PAGE: ELIMINATOR ══════════════ -->
   <div class="content page" id="page-eliminator">
     <div class="brand-header" style="background:linear-gradient(135deg,rgba(34,197,94,0.15) 0%,transparent 60%);border-color:rgba(34,197,94,0.25)">
@@ -681,22 +681,37 @@ body { min-height: 100vh; display: flex; }
       </div>
     </div>
   </div>
- 
+
   <!-- ═══════ PAGE: ALERTS ══════════════════ -->
   <div class="content page" id="page-alerts">
     <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr)">
-      <div class="kpi-card" style="--accent:var(--magmatic)"><div class="kpi-label">Review Flags</div><div class="kpi-value">8</div><div class="kpi-sub">High CPC / low CTR</div></div>
-      <div class="kpi-card" style="--accent:var(--gold)"><div class="kpi-label">Watch Flags</div><div class="kpi-value">12</div><div class="kpi-sub">CTR declining</div></div>
-      <div class="kpi-card" style="--accent:var(--eliminator)"><div class="kpi-label">Scale Opportunities</div><div class="kpi-value">6</div><div class="kpi-sub">Low CPC + strong CTR</div></div>
+      <div class="kpi-card" style="--accent:var(--magmatic)"><div class="kpi-label">Review Flags</div><div class="kpi-value">0</div><div class="kpi-sub">High CPC / low CTR / poor reach</div></div>
+      <div class="kpi-card" style="--accent:var(--gold)"><div class="kpi-label">Watch Flags</div><div class="kpi-value">0</div><div class="kpi-sub">Below average · monitor</div></div>
+      <div class="kpi-card" style="--accent:var(--eliminator)"><div class="kpi-label">Scale Opportunities</div><div class="kpi-value">0</div><div class="kpi-sub">High performers · scale up</div></div>
     </div>
-    <div class="card">
-      <div class="card-header"><div class="card-title">Efficiency Flags</div><div class="card-meta">Auto-generated · based on account averages</div></div>
-      <div id="alertsList"></div>
+
+    <div class="tab-bar" style="margin-bottom:20px">
+      <div class="tab active" id="alertsTabAds" onclick="switchAlertsTab('ads')">Paid Ads</div>
+      <div class="tab" id="alertsTabOrganic" onclick="switchAlertsTab('organic')">Organic Posts</div>
+    </div>
+
+    <div id="alertsAdsSection">
+      <div class="card">
+        <div class="card-header"><div class="card-title">Ad Efficiency Flags</div><div class="card-meta">Auto-generated · diagnostics based on account averages</div></div>
+        <div id="alertsListAds"></div>
+      </div>
+    </div>
+
+    <div id="alertsOrganicSection" style="display:none">
+      <div class="card">
+        <div class="card-header"><div class="card-title">Organic Post Flags</div><div class="card-meta">Auto-generated · IG + FB posts vs each brand's averages</div></div>
+        <div id="alertsListOrganic"></div>
+      </div>
     </div>
   </div>
- 
+
 </main>
- 
+
 <script>
 // ═══════════════════════════════════════════════════════
 // CONFIG
@@ -706,7 +721,7 @@ const BRANDS = ['elation','obsidian','magmatic','eliminator'];
 const BRAND_DISPLAY = {elation:'Elation',obsidian:'Obsidian',magmatic:'Magmatic',eliminator:'Eliminator'};
 const BRAND_COLORS  = {elation:'#3B82F6',obsidian:'#A855F7',magmatic:'#EF4444',eliminator:'#22C55E'};
 const ALL_MONTHS_LABELS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
- 
+
 // ═══════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════
@@ -720,11 +735,11 @@ let liveData = {
   igPosts: {},          // { brand: [post rows] }
   fbPosts: {},          // { brand: [post rows] }
 };
- 
+
 let activeDateRange = 30;   // days; 0 = all time
 let activeBrand     = null; // null = all brands
 const charts = {};
- 
+
 // ═══════════════════════════════════════════════════════
 // LOADING
 // ═══════════════════════════════════════════════════════
@@ -736,7 +751,7 @@ function hideLoader() {
   const el = document.getElementById('loadingOverlay');
   if (el) el.style.display = 'none';
 }
- 
+
 // ═══════════════════════════════════════════════════════
 // FETCH
 // ═══════════════════════════════════════════════════════
@@ -749,7 +764,7 @@ async function fetchSheet(sheet, limit = 5000) {
   const text = await res.text();
   return JSON.parse(text);
 }
- 
+
 // ═══════════════════════════════════════════════════════
 // DATA PROCESSING
 // ═══════════════════════════════════════════════════════
@@ -764,7 +779,7 @@ function getFilteredRows(rows, brand = null, days = 0) {
   }
   return filtered;
 }
- 
+
 function aggregateRows(rows) {
   const totals = { spend:0, impressions:0, reach:0, clicks:0, link_clicks:0, lpv:0, leads:0, adIds: new Set() };
   rows.forEach(r => {
@@ -784,7 +799,7 @@ function aggregateRows(rows) {
   totals.cpl = totals.leads       ? totals.spend  / totals.leads             : 0;
   return totals;
 }
- 
+
 function aggregateByBrand(rows) {
   const map = {};
   rows.forEach(r => {
@@ -808,7 +823,7 @@ function aggregateByBrand(rows) {
     cpl: a.leads       ? a.spend  / a.leads             : 0,
   }));
 }
- 
+
 function buildMonthlySpend(rows) {
   const result = {};
   rows.forEach(r => {
@@ -820,7 +835,7 @@ function buildMonthlySpend(rows) {
   });
   return result;
 }
- 
+
 function buildTopAds(rows, limit = 30) {
   const map = {};
   rows.forEach(r => {
@@ -845,72 +860,263 @@ function buildTopAds(rows, limit = 30) {
     .sort((a,b) => b.spend - a.spend)
     .slice(0, limit);
 }
- 
+
 function buildAlerts(rows, igPosts, fbPosts) {
-  const allAds = buildTopAds(rows, 200);
-  if (!allAds.length) return [];
- 
-  // Account averages (for ads with meaningful spend)
-  const meaningful = allAds.filter(a => a.spend > 50 && a.clicks > 5);
-  if (!meaningful.length) return [];
- 
-  const totalSpend  = meaningful.reduce((s,a) => s + a.spend, 0);
-  const totalClicks = meaningful.reduce((s,a) => s + a.clicks, 0);
-  const totalImpr   = meaningful.reduce((s,a) => s + a.impressions, 0);
-  const avgCpc = totalClicks ? totalSpend / totalClicks : 0;
-  const avgCtr = totalImpr   ? totalClicks / totalImpr * 100 : 0;
-  const avgCpm = totalImpr   ? totalSpend / totalImpr * 1000 : 0;
- 
-  const flags = [];
- 
-  // Ad-level flags
-  allAds.filter(a => a.spend > 50).forEach(a => {
-    if (a.cpc > avgCpc * 2.5 && a.clicks > 10)
-      flags.push({ status:'REVIEW', brand:a.brand, name:a.ad_name, type:'Ad', issue:`CPC ($${a.cpc.toFixed(3)}) is ${(a.cpc/avgCpc).toFixed(1)}× account avg ($${avgCpc.toFixed(3)}) — high cost per click`, spend:a.spend });
-    else if (a.ctr < avgCtr * 0.3 && a.impressions > 20000)
-      flags.push({ status:'REVIEW', brand:a.brand, name:a.ad_name, type:'Ad', issue:`CTR (${a.ctr.toFixed(2)}%) is far below avg (${avgCtr.toFixed(2)}%) — poor creative performance`, spend:a.spend });
-    else if (a.cpc < avgCpc * 0.4 && a.spend > 200 && a.clicks > 50)
-      flags.push({ status:'SCALE', brand:a.brand, name:a.ad_name, type:'Ad', issue:`CPC $${a.cpc.toFixed(3)} is ${(avgCpc/a.cpc).toFixed(1)}× better than avg — strong candidate to scale`, spend:a.spend });
-    else if (a.ctr > avgCtr * 2 && a.impressions > 10000)
-      flags.push({ status:'SCALE', brand:a.brand, name:a.ad_name, type:'Ad', issue:`CTR ${a.ctr.toFixed(2)}% is ${(a.ctr/avgCtr).toFixed(1)}× avg — great creative, consider increasing budget`, spend:a.spend });
-    else if (a.cpm > avgCpm * 2 && a.impressions > 10000)
-      flags.push({ status:'WATCH', brand:a.brand, name:a.ad_name, type:'Ad', issue:`CPM $${a.cpm.toFixed(2)} is ${(a.cpm/avgCpm).toFixed(1)}× avg — expensive audience, consider broader targeting`, spend:a.spend });
-  });
- 
-  // Post-level flags (IG)
-  Object.entries(igPosts || {}).forEach(([brand, posts]) => {
-    if (!posts || !posts.length) return;
-    const postsWithData = posts.filter(p => Number(p.reach||0) > 0);
-    if (postsWithData.length < 3) return;
-    const avgReach = postsWithData.reduce((s,p) => s + Number(p.reach||0), 0) / postsWithData.length;
-    const avgLikes = postsWithData.reduce((s,p) => s + Number(p.likes||0), 0) / postsWithData.length;
-    postsWithData.forEach(p => {
-      const reach = Number(p.reach||0);
-      const likes = Number(p.likes||0);
-      if (reach > avgReach * 2.5)
-        flags.push({ status:'SCALE', brand:BRAND_DISPLAY[brand]||brand, name:(p.caption||'').slice(0,60)+'…', type:'IG Post', issue:`Reach ${reach.toLocaleString()} is ${(reach/avgReach).toFixed(1)}× avg — high-performing organic post, boost it`, spend:0 });
-      else if (reach < avgReach * 0.3 && likes < avgLikes * 0.3)
-        flags.push({ status:'WATCH', brand:BRAND_DISPLAY[brand]||brand, name:(p.caption||'').slice(0,60)+'…', type:'IG Post', issue:`Low reach (${reach.toLocaleString()}) and engagement — underperforming vs account average`, spend:0 });
-    });
-  });
- 
-  // Post-level flags (FB)
-  Object.entries(fbPosts || {}).forEach(([brand, posts]) => {
-    if (!posts || !posts.length) return;
-    const postsWithData = posts.filter(p => Number(p.impressions_unique||0) > 0);
-    if (postsWithData.length < 3) return;
-    const avgImpr = postsWithData.reduce((s,p) => s + Number(p.impressions_unique||0), 0) / postsWithData.length;
-    postsWithData.forEach(p => {
-      const impr = Number(p.impressions_unique||0);
-      if (impr > avgImpr * 2.5)
-        flags.push({ status:'SCALE', brand:BRAND_DISPLAY[brand]||brand, name:(p.caption||'').slice(0,60)+'…', type:'FB Post', issue:`Impressions ${impr.toLocaleString()} is ${(impr/avgImpr).toFixed(1)}× avg — strong FB post, consider boosting`, spend:0 });
-    });
-  });
- 
-  const order = { REVIEW:0, WATCH:1, SCALE:2 };
-  return flags.sort((a,b) => order[a.status] - order[b.status] || b.spend - a.spend).slice(0, 40);
+  return {
+    ads:     buildAdAlerts(rows),
+    organic: buildOrganicAlerts(igPosts, fbPosts),
+  };
 }
- 
+
+// ── DIAGNOSTIC LOGIC FOR ADS ─────────────────────────────────────────────────
+// Combines multiple signals to guess at root cause when flagging an ad
+function diagnoseAd(a, avg) {
+  const ctrRatio  = avg.ctr ? a.ctr / avg.ctr : 1;
+  const cpcRatio  = avg.cpc ? a.cpc / avg.cpc : 1;
+  const cpmRatio  = avg.cpm ? a.cpm / avg.cpm : 1;
+  const lpvRate   = a.link_clicks ? a.lpv / a.link_clicks : null;
+  const avgLpvRate = avg.lpvRate;
+
+  const reasons = [];
+
+  // High CPM = expensive audience (auction-driven cost)
+  if (cpmRatio > 1.6) reasons.push(`CPM is ${cpmRatio.toFixed(1)}× avg — competitive/narrow audience`);
+
+  // Low CTR with normal CPM = creative issue
+  if (ctrRatio < 0.5 && cpmRatio < 1.4) reasons.push(`CTR is ${ctrRatio.toFixed(1)}× avg with normal CPM — creative likely the issue (hook, image, copy)`);
+
+  // Low CTR with high CPM = wrong audience match
+  if (ctrRatio < 0.6 && cpmRatio > 1.4) reasons.push(`Low CTR + high CPM — likely audience mismatch (targeting too narrow or wrong segment)`);
+
+  // High CPC with decent CTR = bidding/competition
+  if (cpcRatio > 1.8 && ctrRatio > 0.7) reasons.push(`CPC is high but CTR is ok — auction competition or bid strategy issue`);
+
+  // High CTR with high CPC = creative working but expensive audience
+  if (ctrRatio > 1.3 && cpcRatio > 1.5) reasons.push(`Creative engages but audience is expensive — try broader targeting`);
+
+  // Strong LPV drop-off
+  if (lpvRate != null && avgLpvRate && lpvRate < avgLpvRate * 0.5 && a.link_clicks > 50) {
+    reasons.push(`Only ${(lpvRate*100).toFixed(0)}% of clicks reach landing page (avg ${(avgLpvRate*100).toFixed(0)}%) — page may be slow, broken, or messaging mismatch`);
+  }
+
+  // Aged ads — check first vs last seen
+  if (a.firstDate && a.lastDate) {
+    const ageDays = (new Date(a.lastDate) - new Date(a.firstDate)) / 86400000;
+    if (ageDays > 60 && ctrRatio < 0.7) reasons.push(`Ad has been running ${Math.round(ageDays)} days with declining CTR — likely creative fatigue, refresh creative`);
+  }
+
+  return reasons;
+}
+
+function buildAdAlerts(rows) {
+  // Aggregate per ad with date metadata
+  const map = {};
+  rows.forEach(r => {
+    const id = r.ad_id || '';
+    if (!id) return;
+    if (!map[id]) map[id] = { ad_id:id, brand:r.brand||'', ad_name:r.ad_name||'', adset_name:r.adset_name||'', campaign_name:r.campaign_name||'', objective:r.objective||'',
+      spend:0, impressions:0, clicks:0, link_clicks:0, lpv:0, leads:0, firstDate:r.date, lastDate:r.date };
+    const a = map[id];
+    a.spend       += Number(r.spend       || 0);
+    a.impressions += Number(r.impressions || 0);
+    a.clicks      += Number(r.clicks      || 0);
+    a.link_clicks += Number(r.link_clicks || 0);
+    a.lpv         += Number(r.lpv         || 0);
+    a.leads       += Number(r.leads       || 0);
+    if (r.date && r.date < a.firstDate) a.firstDate = r.date;
+    if (r.date && r.date > a.lastDate)  a.lastDate  = r.date;
+  });
+  const allAds = Object.values(map).map(a => ({ ...a,
+    ctr: a.impressions ? a.clicks / a.impressions * 100 : 0,
+    cpc: a.clicks      ? a.spend  / a.clicks            : 0,
+    cpm: a.impressions ? a.spend  / a.impressions * 1000: 0,
+  }));
+
+  // Account averages from ads with meaningful spend
+  const meaningful = allAds.filter(a => a.spend > 50 && a.clicks > 5);
+  if (meaningful.length < 3) return [];
+
+  const totalSpend = meaningful.reduce((s,a) => s + a.spend, 0);
+  const totalClicks = meaningful.reduce((s,a) => s + a.clicks, 0);
+  const totalImpr = meaningful.reduce((s,a) => s + a.impressions, 0);
+  const totalLinkClicks = meaningful.reduce((s,a) => s + a.link_clicks, 0);
+  const totalLpv = meaningful.reduce((s,a) => s + a.lpv, 0);
+
+  const avg = {
+    cpc: totalClicks ? totalSpend / totalClicks : 0,
+    ctr: totalImpr   ? totalClicks / totalImpr * 100 : 0,
+    cpm: totalImpr   ? totalSpend / totalImpr * 1000 : 0,
+    lpvRate: totalLinkClicks ? totalLpv / totalLinkClicks : 0,
+  };
+
+  const flags = [];
+
+  meaningful.forEach(a => {
+    const ctrRatio = avg.ctr ? a.ctr / avg.ctr : 1;
+    const cpcRatio = avg.cpc ? a.cpc / avg.cpc : 1;
+
+    // Determine status
+    let status = null;
+    let headline = '';
+
+    if (cpcRatio > 2.5 && a.clicks > 10) {
+      status = 'REVIEW';
+      headline = `CPC $${a.cpc.toFixed(3)} is ${cpcRatio.toFixed(1)}× account avg ($${avg.cpc.toFixed(3)})`;
+    } else if (ctrRatio < 0.3 && a.impressions > 20000) {
+      status = 'REVIEW';
+      headline = `CTR ${a.ctr.toFixed(2)}% is far below avg (${avg.ctr.toFixed(2)}%)`;
+    } else if (cpcRatio < 0.4 && a.spend > 200 && a.clicks > 50) {
+      status = 'SCALE';
+      headline = `CPC $${a.cpc.toFixed(3)} is ${(1/cpcRatio).toFixed(1)}× better than avg`;
+    } else if (ctrRatio > 2 && a.impressions > 10000) {
+      status = 'SCALE';
+      headline = `CTR ${a.ctr.toFixed(2)}% is ${ctrRatio.toFixed(1)}× avg`;
+    } else if ((cpcRatio > 1.5 || ctrRatio < 0.6) && a.spend > 100) {
+      status = 'WATCH';
+      headline = `Performance below average — CTR ${a.ctr.toFixed(2)}%, CPC $${a.cpc.toFixed(3)}`;
+    }
+
+    if (!status) return;
+
+    const diagnostics = (status === 'REVIEW' || status === 'WATCH') ? diagnoseAd(a, avg) : [];
+    flags.push({
+      status,
+      brand:    a.brand,
+      name:     a.ad_name,
+      campaign: a.campaign_name,
+      type:     'Ad',
+      headline,
+      diagnostics,
+      spend:    a.spend,
+      metrics:  { ctr:a.ctr, cpc:a.cpc, cpm:a.cpm, impressions:a.impressions, clicks:a.clicks, leads:a.leads }
+    });
+  });
+
+  const order = { REVIEW:0, WATCH:1, SCALE:2 };
+  return flags.sort((a,b) => order[a.status] - order[b.status] || b.spend - a.spend).slice(0, 50);
+}
+
+function buildOrganicAlerts(igPosts, fbPosts) {
+  const flags = [];
+
+  // IG: per-brand because each brand has different audience size
+  Object.entries(igPosts || {}).forEach(([brand, posts]) => {
+    if (!posts || posts.length < 4) return;
+    const withData = posts.filter(p => Number(p.reach||0) > 0);
+    if (withData.length < 4) return;
+
+    const sortedByDate = [...withData].sort((a,b) => (a.date||'') < (b.date||'') ? 1 : -1);
+    const recent = sortedByDate.slice(0, 30); // last 30 posts
+
+    const avgReach    = recent.reduce((s,p) => s + Number(p.reach||0), 0) / recent.length;
+    const avgLikes    = recent.reduce((s,p) => s + Number(p.likes||0), 0) / recent.length;
+    const avgComments = recent.reduce((s,p) => s + Number(p.comments||0), 0) / recent.length;
+    const avgShares   = recent.reduce((s,p) => s + Number(p.shares||0), 0) / recent.length;
+
+    recent.forEach(p => {
+      const reach    = Number(p.reach    || 0);
+      const likes    = Number(p.likes    || 0);
+      const comments = Number(p.comments || 0);
+      const shares   = Number(p.shares   || 0);
+      const saved    = Number(p.saved    || 0);
+
+      const reachRatio    = avgReach    ? reach / avgReach     : 1;
+      const likesRatio    = avgLikes    ? likes / avgLikes     : 1;
+      const sharesRatio   = avgShares   ? shares / avgShares   : 1;
+      const engagementRate = reach ? (likes + comments + shares + saved) / reach * 100 : 0;
+      const avgEngagement  = avgReach ? (avgLikes + avgComments + avgShares) / avgReach * 100 : 0;
+
+      let status = null, headline = '';
+      const diagnostics = [];
+
+      if (reachRatio > 2.5) {
+        status = 'SCALE';
+        headline = `Reach ${reach.toLocaleString()} is ${reachRatio.toFixed(1)}× brand avg`;
+        if (sharesRatio > 2) diagnostics.push(`${shares} shares (${sharesRatio.toFixed(1)}× avg) — content resonates, consider boosting as paid`);
+        else diagnostics.push(`Algorithm is favoring this content — boost as paid ad to extend reach further`);
+      } else if (reachRatio < 0.4 && likesRatio < 0.5) {
+        status = 'WATCH';
+        headline = `Reach ${reach.toLocaleString()} and engagement well below brand avg`;
+        // Diagnostics
+        if (p.media_type === 'IMAGE' && avgReach > reach * 1.5) diagnostics.push(`Image post — videos and Reels typically reach more accounts on IG`);
+        if ((p.caption||'').length < 50) diagnostics.push(`Short caption — longer captions with hooks tend to hold viewers and boost reach`);
+        if (engagementRate < avgEngagement * 0.5) diagnostics.push(`Low engagement rate (${engagementRate.toFixed(1)}% vs ${avgEngagement.toFixed(1)}% avg) — content may not be hitting the audience interest`);
+        if (!diagnostics.length) diagnostics.push(`Possible causes: post timing, hashtags, audience interest mismatch, or algorithm de-prioritization`);
+      } else if (engagementRate > avgEngagement * 2 && reach > avgReach * 0.7) {
+        status = 'SCALE';
+        headline = `Engagement rate ${engagementRate.toFixed(1)}% is ${(engagementRate/avgEngagement).toFixed(1)}× brand avg`;
+        diagnostics.push(`Strong audience response per impression — this format/topic is working, replicate in future posts`);
+      }
+
+      if (status) {
+        flags.push({
+          status,
+          brand:       BRAND_DISPLAY[brand] || brand,
+          name:        (p.caption || '').slice(0, 80) || '(no caption)',
+          permalink:   p.permalink,
+          type:        'IG Post',
+          mediaType:   p.media_type,
+          headline,
+          diagnostics,
+          metrics:     { reach, likes, comments, shares, saved, engagementRate },
+          date:        p.date,
+        });
+      }
+    });
+  });
+
+  // FB: per-brand
+  Object.entries(fbPosts || {}).forEach(([brand, posts]) => {
+    if (!posts || posts.length < 4) return;
+    const withData = posts.filter(p => Number(p.impressions_unique||0) > 0);
+    if (withData.length < 4) return;
+
+    const recent = [...withData].sort((a,b) => (a.date||'') < (b.date||'') ? 1 : -1).slice(0, 30);
+    const avgImpr  = recent.reduce((s,p) => s + Number(p.impressions_unique||0), 0) / recent.length;
+    const avgClicks = recent.reduce((s,p) => s + Number(p.clicks||0), 0) / recent.length;
+
+    recent.forEach(p => {
+      const impr = Number(p.impressions_unique || 0);
+      const clicks = Number(p.clicks || 0);
+      const imprRatio = avgImpr ? impr / avgImpr : 1;
+      const clickRate = impr ? clicks / impr * 100 : 0;
+      const avgClickRate = avgImpr ? avgClicks / avgImpr * 100 : 0;
+
+      let status = null, headline = '';
+      const diagnostics = [];
+
+      if (imprRatio > 2.5) {
+        status = 'SCALE';
+        headline = `Impressions ${impr.toLocaleString()} is ${imprRatio.toFixed(1)}× brand avg`;
+        diagnostics.push(`Organic distribution is strong — boost as paid post to extend reach further`);
+      } else if (imprRatio < 0.4) {
+        status = 'WATCH';
+        headline = `Impressions ${impr.toLocaleString()} well below brand avg`;
+        if ((p.type||'').toLowerCase().includes('shared')) diagnostics.push(`Shared post — original content typically reaches more on FB`);
+        if (clickRate < avgClickRate * 0.5) diagnostics.push(`Click rate also below avg — content may not be compelling for the audience`);
+        if (!diagnostics.length) diagnostics.push(`Possible causes: timing, content type mismatch, or FB algorithm de-prioritization`);
+      }
+
+      if (status) {
+        flags.push({
+          status,
+          brand:     BRAND_DISPLAY[brand] || brand,
+          name:      (p.caption || '').slice(0, 80) || '(no caption)',
+          permalink: p.permalink,
+          type:      'FB Post',
+          headline,
+          diagnostics,
+          metrics:   { impressions: impr, clicks, reactions: Number(p.reactions||0) },
+          date:      p.date,
+        });
+      }
+    });
+  });
+
+  const order = { REVIEW:0, WATCH:1, SCALE:2 };
+  return flags.sort((a,b) => order[a.status] - order[b.status] || (b.metrics?.reach||b.metrics?.impressions||0) - (a.metrics?.reach||a.metrics?.impressions||0)).slice(0, 60);
+}
+
 // ═══════════════════════════════════════════════════════
 // FORMATTING
 // ═══════════════════════════════════════════════════════
@@ -926,11 +1132,11 @@ function fmt(n, type) {
     default:     return n;
   }
 }
- 
+
 function brandColor(b) {
   return BRAND_COLORS[(b||'').toLowerCase()] || '#8896B3';
 }
- 
+
 // ═══════════════════════════════════════════════════════
 // CHART DEFAULTS
 // ═══════════════════════════════════════════════════════
@@ -944,11 +1150,11 @@ const CD = {
     tooltip: { backgroundColor:'#1f2a3d', borderColor:'rgba(255,255,255,0.1)', borderWidth:1, padding:10, titleColor:'#F0F4FF', bodyColor:'#8896B3' }
   }
 };
- 
+
 function destroyChart(key) {
   if (charts[key]) { try { charts[key].destroy(); } catch(e) {} delete charts[key]; }
 }
- 
+
 // ═══════════════════════════════════════════════════════
 // RENDER KPIs
 // ═══════════════════════════════════════════════════════
@@ -963,7 +1169,7 @@ function renderOverviewKPIs() {
   if (kpis[4]) kpis[4].textContent = fmt(totals.cpc, '$4');
   if (kpis[5]) kpis[5].textContent = fmt(totals.cpm, '$2');
 }
- 
+
 function renderBrandKPIs(brand) {
   const rows    = getFilteredRows(liveData.rawRows, brand, activeDateRange);
   const totals  = aggregateRows(rows);
@@ -976,18 +1182,18 @@ function renderBrandKPIs(brand) {
   if (kpis[3]) kpis[3].textContent = fmt(totals.ctr, '%');
   if (kpis[4]) kpis[4].textContent = fmt(totals.cpc, '$4');
   if (kpis[5]) kpis[5].textContent = fmt(totals.cpm, '$2');
- 
+
   // Update brand header subtitle
   const sub = page.querySelector('.brand-header-meta');
   if (sub) sub.textContent = `${fmt(totals.spend,'$')} spend · ${totals.ad_count} ads · IG + FB organic tracked`;
 }
- 
+
 // ═══════════════════════════════════════════════════════
 // RENDER OVERVIEW CHARTS
 // ═══════════════════════════════════════════════════════
 function renderOverviewCharts() {
   const rows = getFilteredRows(liveData.rawRows, null, activeDateRange);
- 
+
   // Build monthly spend from filtered rows
   const ms = buildMonthlySpend(rows);
   const allYMs = [...new Set(Object.values(ms).flatMap(b => Object.keys(b)))].sort();
@@ -995,7 +1201,7 @@ function renderOverviewCharts() {
     const [y,m] = ym.split('-');
     return ALL_MONTHS_LABELS[+m-1] + ' ' + y.slice(2);
   });
- 
+
   // --- Spend trend line chart ---
   destroyChart('spendTrend');
   const ctSpend = document.getElementById('spendTrendChart');
@@ -1021,7 +1227,7 @@ function renderOverviewCharts() {
       }
     });
   }
- 
+
   // --- Brand spend donut ---
   destroyChart('brandSpend');
   const brandSummary = aggregateByBrand(rows).sort((a,b) => b.spend - a.spend);
@@ -1043,7 +1249,7 @@ function renderOverviewCharts() {
       }
     });
   }
- 
+
   // --- CTR trend ---
   destroyChart('ctrTrend');
   const ctCtr = document.getElementById('ctrTrendChart');
@@ -1061,7 +1267,7 @@ function renderOverviewCharts() {
       options: { ...CD, scales: { x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{maxRotation:45,maxTicksLimit:8}}, y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{callback:v=>v.toFixed(1)+'%'}} } }
     });
   }
- 
+
   // --- Objective donut ---
   destroyChart('objective');
   const ctObj = document.getElementById('objectiveChart');
@@ -1082,7 +1288,7 @@ function renderOverviewCharts() {
     });
   }
 }
- 
+
 // ═══════════════════════════════════════════════════════
 // RENDER TOP ADS TABLE
 // ═══════════════════════════════════════════════════════
@@ -1107,7 +1313,7 @@ function renderTopAdsTable() {
     </tr>`).join('')
   : '<tr><td colspan="11" style="text-align:center;padding:20px;color:var(--text3)">No ad data for selected period</td></tr>';
 }
- 
+
 // ═══════════════════════════════════════════════════════
 // RENDER BRAND PAGE CHARTS
 // ═══════════════════════════════════════════════════════
@@ -1121,7 +1327,7 @@ function renderBrandCharts(brand) {
     const [y,m] = ym.split('-');
     return ALL_MONTHS_LABELS[+m-1]+' '+y.slice(2);
   });
- 
+
   // Monthly spend bar
   destroyChart(`${brand}Spend`);
   const ctSpend = document.getElementById(`${brand}SpendChart`);
@@ -1132,7 +1338,7 @@ function renderBrandCharts(brand) {
       options: { ...CD, scales: { x:{grid:{display:false},ticks:{maxRotation:45,maxTicksLimit:8}}, y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{callback:v=>'$'+v.toLocaleString()}} } }
     });
   }
- 
+
   // Campaign bar
   destroyChart(`${brand}Campaign`);
   const ctCamp = document.getElementById(`${brand}CampaignChart`);
@@ -1149,7 +1355,7 @@ function renderBrandCharts(brand) {
       options: { ...CD, indexAxis:'y', scales: { x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{callback:v=>'$'+v.toLocaleString()}}, y:{grid:{display:false},ticks:{font:{size:10}}} } }
     });
   }
- 
+
   // Ads table
   const topAds = buildTopAds(rows, 15);
   const tbody  = document.getElementById(`${brand}AdsTable`);
@@ -1168,7 +1374,7 @@ function renderBrandCharts(brand) {
     : '<tr><td colspan="8" style="text-align:center;padding:20px;color:var(--text3)">No ads found for selected period</td></tr>';
   }
 }
- 
+
 // ═══════════════════════════════════════════════════════
 // RENDER ORGANIC SOCIAL
 // ═══════════════════════════════════════════════════════
@@ -1180,7 +1386,7 @@ function renderBrandOrganic(brand) {
   if (els[1]) els[1].textContent = n(f.fb_followers);
   if (els[2]) els[2].textContent = n(f.ig_reach_30d);
   if (els[3]) els[3].textContent = n(f.fb_impressions_30d);
- 
+
   // IG follower chart
   destroyChart(`${brand}Followers`);
   const ctFol = document.getElementById(`${brand}FollowersChart`);
@@ -1200,7 +1406,7 @@ function renderBrandOrganic(brand) {
       });
     }
   }
- 
+
   // IG posts table
   const posts = liveData.igPosts[brand] || [];
   const tbody = document.getElementById(`${brand}PostsTable`);
@@ -1217,7 +1423,7 @@ function renderBrandOrganic(brand) {
     : '<tr><td colspan="5" style="text-align:center;padding:16px;color:var(--text3)">No post data available</td></tr>';
   }
 }
- 
+
 // ═══════════════════════════════════════════════════════
 // RENDER PACING
 // ═══════════════════════════════════════════════════════
@@ -1227,7 +1433,7 @@ function renderPacing() {
     const totalBudget  = brandBudgets.reduce((s,r) => s + Number(r.budget||0), 0);
     return { brand:b.brand, color: brandColor(b.brand), budget: totalBudget, spent: b.spend };
   }).filter(p => p.brand);
- 
+
   // Pacing rows
   const pacingEl = document.getElementById('pacingRows');
   if (pacingEl) {
@@ -1247,7 +1453,7 @@ function renderPacing() {
       </div>`;
     }).join('');
   }
- 
+
   // Pacing bar chart
   destroyChart('pacing');
   const ctPacing = document.getElementById('pacingChart');
@@ -1266,7 +1472,7 @@ function renderPacing() {
       }
     });
   }
- 
+
   // Pacing trend chart — monthly spend vs avg monthly budget
   destroyChart('pacingTrend');
   const ctTrend = document.getElementById('pacingTrendChart');
@@ -1279,7 +1485,7 @@ function renderPacing() {
     const totalBudget = liveData.budgets.reduce((s,r) => s + Number(r.budget||0), 0);
     const budgetMonths = [...new Set(liveData.budgets.map(r=>r.period))].length || 1;
     const avgMonthlyBudget = totalBudget / budgetMonths;
- 
+
     charts.pacingTrend = new Chart(ctTrend, {
       type: 'bar',
       data: {
@@ -1294,7 +1500,7 @@ function renderPacing() {
       }
     });
   }
- 
+
   // Pacing KPI cards
   const allSummary = liveData.summary;
   const totalSpentYTD  = allSummary.reduce((s,b)=>s+b.spend,0);
@@ -1306,49 +1512,101 @@ function renderPacing() {
   if (kpis[2]) kpis[2].textContent = fmt(forecast,'$');
   if (kpis[3]) kpis[3].textContent = (totalBudgetAll > 0 ? (totalSpentYTD - totalBudgetAll) : 0) >= 0 ? '+'+fmt(Math.abs(totalSpentYTD-totalBudgetAll),'$') : '–'+fmt(Math.abs(totalSpentYTD-totalBudgetAll),'$');
 }
- 
+
 // ═══════════════════════════════════════════════════════
 // RENDER ALERTS
 // ═══════════════════════════════════════════════════════
+function renderFlagItem(a) {
+  const cfg = {
+    REVIEW:{ bg:'rgba(239,68,68,0.12)',  border:'#EF4444', icon:'↓', tagBg:'rgba(239,68,68,0.2)',  tagColor:'#EF4444' },
+    WATCH: { bg:'rgba(245,158,11,0.12)', border:'#F59E0B', icon:'~', tagBg:'rgba(245,158,11,0.2)', tagColor:'#F59E0B' },
+    SCALE: { bg:'rgba(34,197,94,0.12)',  border:'#22C55E', icon:'↑', tagBg:'rgba(34,197,94,0.2)',  tagColor:'#22C55E' },
+  }[a.status];
+  const typeColor = a.type==='IG Post' ? '#E1306C' : a.type==='FB Post' ? '#1877F2' : 'var(--text3)';
+
+  // Build metrics row
+  let metricsRow = '';
+  if (a.metrics) {
+    const parts = [];
+    if (a.metrics.spend != null && a.spend > 0)        parts.push(`Spend ${fmt(a.spend,'$fine')}`);
+    if (a.metrics.impressions != null)                  parts.push(`Impr. ${fmt(a.metrics.impressions,'num')}`);
+    if (a.metrics.clicks != null && a.metrics.clicks)   parts.push(`Clicks ${a.metrics.clicks.toLocaleString()}`);
+    if (a.metrics.ctr != null && a.metrics.ctr)         parts.push(`CTR ${a.metrics.ctr.toFixed(2)}%`);
+    if (a.metrics.cpc != null && a.metrics.cpc)         parts.push(`CPC $${a.metrics.cpc.toFixed(3)}`);
+    if (a.metrics.reach != null)                        parts.push(`Reach ${fmt(a.metrics.reach,'num')}`);
+    if (a.metrics.likes != null)                        parts.push(`Likes ${a.metrics.likes.toLocaleString()}`);
+    if (a.metrics.shares != null && a.metrics.shares)   parts.push(`Shares ${a.metrics.shares}`);
+    if (a.metrics.engagementRate)                       parts.push(`Eng. ${a.metrics.engagementRate.toFixed(1)}%`);
+    if (parts.length) metricsRow = `<div style="font-size:10px;color:var(--text3);margin-top:6px;display:flex;flex-wrap:wrap;gap:10px">${parts.map(p => `<span>${p}</span>`).join('')}</div>`;
+  }
+
+  // Diagnostics block
+  let diagBlock = '';
+  if (a.diagnostics && a.diagnostics.length) {
+    diagBlock = `<div style="margin-top:8px;padding:8px 10px;background:rgba(255,255,255,0.03);border-radius:6px;border-left:2px solid ${cfg.border}">
+      <div style="font-size:9px;font-weight:600;letter-spacing:0.1em;color:var(--text3);text-transform:uppercase;margin-bottom:4px">Likely cause${a.diagnostics.length>1?'s':''}</div>
+      ${a.diagnostics.map(d => `<div style="font-size:11px;color:var(--text2);line-height:1.5;padding:2px 0">→ ${d}</div>`).join('')}
+    </div>`;
+  }
+
+  const linkAttr = a.permalink ? `<a href="${a.permalink}" target="_blank" style="color:${typeColor};margin-left:6px;font-size:10px;text-decoration:none">↗ open</a>` : '';
+  const dateAttr = a.date ? `<span style="color:var(--text3);font-size:10px;margin-left:8px">${a.date}</span>` : '';
+  const mediaAttr = a.mediaType ? `<span style="color:var(--text3);font-size:9px;margin-left:6px;background:rgba(255,255,255,0.05);padding:1px 5px;border-radius:3px">${a.mediaType}</span>` : '';
+
+  return `<div class="alert-item" style="align-items:flex-start">
+    <div class="alert-icon" style="background:${cfg.bg};color:${cfg.border};border:1px solid ${cfg.border}40;flex-shrink:0">${cfg.icon}</div>
+    <div class="alert-text" style="flex:1;min-width:0">
+      <div class="alert-title" style="display:flex;align-items:center;flex-wrap:wrap;gap:4px">
+        <span title="${(a.name||'').replace(/"/g,'&quot;')}" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:380px">${(a.name||'').length>80?a.name.slice(0,80)+'…':a.name}</span>
+        <span style="color:${brandColor(a.brand)};font-size:10px;font-weight:600;margin-left:8px">${a.brand}</span>
+        <span style="color:${typeColor};font-size:10px;margin-left:6px;background:${typeColor}22;padding:1px 6px;border-radius:3px">${a.type}</span>
+        ${mediaAttr}${dateAttr}${linkAttr}
+      </div>
+      <div class="alert-desc" style="margin-top:3px">${a.headline||''}</div>
+      ${a.campaign?`<div style="font-size:10px;color:var(--text3);margin-top:2px">Campaign: ${a.campaign}</div>`:''}
+      ${metricsRow}
+      ${diagBlock}
+    </div>
+    <span class="alert-tag" style="background:${cfg.tagBg};color:${cfg.tagColor};flex-shrink:0">${a.status}</span>
+  </div>`;
+}
+
 function renderAlerts() {
-  const rows   = getFilteredRows(liveData.rawRows, null, 0); // all time for alerts
-  const flags  = buildAlerts(rows, liveData.igPosts, liveData.fbPosts);
-  const review = flags.filter(f=>f.status==='REVIEW').length;
-  const watch  = flags.filter(f=>f.status==='WATCH').length;
-  const scale  = flags.filter(f=>f.status==='SCALE').length;
- 
-  // Update KPI counts
+  const rows  = getFilteredRows(liveData.rawRows, null, 0); // all time for alerts
+  const { ads, organic } = buildAlerts(rows, liveData.igPosts, liveData.fbPosts);
+
+  const all = [...ads, ...organic];
+  const review = all.filter(f=>f.status==='REVIEW').length;
+  const watch  = all.filter(f=>f.status==='WATCH').length;
+  const scale  = all.filter(f=>f.status==='SCALE').length;
+
   const kpis = document.querySelectorAll('#page-alerts .kpi-value');
   if (kpis[0]) kpis[0].textContent = review;
   if (kpis[1]) kpis[1].textContent = watch;
   if (kpis[2]) kpis[2].textContent = scale;
- 
-  const el = document.getElementById('alertsList');
-  if (!el) return;
-  el.innerHTML = flags.length ? flags.map(a => {
-    const cfg = {
-      REVIEW:{ bg:'rgba(239,68,68,0.12)',  border:'#EF4444', icon:'↓', tagBg:'rgba(239,68,68,0.2)',  tagColor:'#EF4444' },
-      WATCH: { bg:'rgba(245,158,11,0.12)', border:'#F59E0B', icon:'~', tagBg:'rgba(245,158,11,0.2)', tagColor:'#F59E0B' },
-      SCALE: { bg:'rgba(34,197,94,0.12)',  border:'#22C55E', icon:'↑', tagBg:'rgba(34,197,94,0.2)',  tagColor:'#22C55E' },
-    }[a.status];
-    const typeColor = a.type==='IG Post' ? '#E1306C' : a.type==='FB Post' ? '#1877F2' : 'var(--text3)';
-    return `<div class="alert-item">
-      <div class="alert-icon" style="background:${cfg.bg};color:${cfg.border};border:1px solid ${cfg.border}40">${cfg.icon}</div>
-      <div class="alert-text">
-        <div class="alert-title">
-          <span title="${a.name}">${(a.name||'').length>60?a.name.slice(0,60)+'…':a.name}</span>
-          <span style="color:${brandColor(a.brand)};font-size:10px;font-weight:600;margin-left:8px">${a.brand}</span>
-          <span style="color:${typeColor};font-size:10px;margin-left:6px;background:${typeColor}22;padding:1px 6px;border-radius:3px">${a.type}</span>
-        </div>
-        <div class="alert-desc">${a.issue}</div>
-        ${a.spend>0?`<div style="font-size:10px;color:var(--text3);margin-top:3px">Spend: ${fmt(a.spend,'$fine')}</div>`:''}
-      </div>
-      <span class="alert-tag" style="background:${cfg.tagBg};color:${cfg.tagColor};flex-shrink:0">${a.status}</span>
-    </div>`;
-  }).join('')
-  : '<div style="padding:24px;text-align:center;color:var(--text3)">No flags generated — all campaigns within normal ranges.</div>';
+
+  // Ads list
+  const adsEl = document.getElementById('alertsListAds');
+  if (adsEl) {
+    adsEl.innerHTML = ads.length ? ads.map(renderFlagItem).join('')
+      : '<div style="padding:32px;text-align:center;color:var(--text3)">No ad-level flags — all paid ads within normal ranges or insufficient spend to evaluate.</div>';
+  }
+
+  // Organic list
+  const orgEl = document.getElementById('alertsListOrganic');
+  if (orgEl) {
+    orgEl.innerHTML = organic.length ? organic.map(renderFlagItem).join('')
+      : '<div style="padding:32px;text-align:center;color:var(--text3)">No organic post flags — need at least 4 posts per brand to compute averages, and posts must have reach data.</div>';
+  }
 }
- 
+
+function switchAlertsTab(tab) {
+  document.getElementById('alertsTabAds').classList.toggle('active', tab === 'ads');
+  document.getElementById('alertsTabOrganic').classList.toggle('active', tab === 'organic');
+  document.getElementById('alertsAdsSection').style.display     = tab === 'ads'     ? '' : 'none';
+  document.getElementById('alertsOrganicSection').style.display = tab === 'organic' ? '' : 'none';
+}
+
 // ═══════════════════════════════════════════════════════
 // MAIN LOAD
 // ═══════════════════════════════════════════════════════
@@ -1363,20 +1621,20 @@ async function loadData() {
       liveData.summary     = aggregateByBrand(adsRes.rows);
       liveData.monthlySpend = buildMonthlySpend(adsRes.rows);
     }
- 
+
     // Budgets
     showLoader('Fetching budget data…');
     try {
       const budgetsRes = await fetchSheet('budgets', 500);
       if (budgetsRes && budgetsRes.rows) liveData.budgets = budgetsRes.rows;
     } catch(e) { console.warn('Budgets fetch failed:', e); }
- 
+
     // Social data per brand
     liveData.igPosts    = {};
     liveData.fbPosts    = {};
     liveData.followers  = {};
     liveData.igDailyRaw = {};
- 
+
     for (const brand of BRANDS) {
       showLoader(`Fetching ${BRAND_DISPLAY[brand]} social data…`);
       try {
@@ -1384,13 +1642,13 @@ async function loadData() {
         const igPostsRes = await fetchSheet(`${brand}_ig_posts`, 500);
         if (igPostsRes && igPostsRes.rows) liveData.igPosts[brand] = igPostsRes.rows;
       } catch(e) { console.warn(`IG posts failed for ${brand}:`, e); }
- 
+
       try {
         // FB posts
         const fbPostsRes = await fetchSheet(`${brand}_fb_posts`, 500);
         if (fbPostsRes && fbPostsRes.rows) liveData.fbPosts[brand] = fbPostsRes.rows;
       } catch(e) { console.warn(`FB posts failed for ${brand}:`, e); }
- 
+
       try {
         // IG daily (followers)
         const igDailyRes = await fetchSheet(`${brand}_ig_daily`, 1000);
@@ -1406,7 +1664,7 @@ async function loadData() {
           };
         }
       } catch(e) { console.warn(`IG daily failed for ${brand}:`, e); }
- 
+
       try {
         // FB daily (followers)
         const fbDailyRes = await fetchSheet(`${brand}_fb_page_daily`, 1000);
@@ -1423,15 +1681,15 @@ async function loadData() {
         }
       } catch(e) { console.warn(`FB daily failed for ${brand}:`, e); }
     }
- 
+
   } catch(err) {
     console.error('Data load error:', err);
   }
- 
+
   hideLoader();
   renderAll();
 }
- 
+
 function renderAll() {
   renderOverviewKPIs();
   renderOverviewCharts();
@@ -1440,7 +1698,7 @@ function renderAll() {
   renderPacing();
   renderAlerts();
 }
- 
+
 // ═══════════════════════════════════════════════════════
 // DATE RANGE FILTER
 // ═══════════════════════════════════════════════════════
@@ -1452,13 +1710,17 @@ const DATE_OPTIONS = [
   { label:'This year',    days:365},
   { label:'All time',     days:0  },
 ];
- 
+
 let dateDropdownOpen = false;
 let brandDropdownOpen = false;
- 
+
 document.addEventListener('DOMContentLoaded', () => {
   // Build date dropdown
   const datePill = document.querySelector('.date-pill');
+  // Wrap initial text in a span so we can update only the label, not the whole pill
+  datePill.innerHTML = '<span class="date-label">📅 Last 30 days</span>';
+  const dateLabel = datePill.querySelector('.date-label');
+
   const dateMenu = document.createElement('div');
   dateMenu.id = 'dateMenu';
   dateMenu.style.cssText = 'display:none;position:absolute;top:100%;right:0;margin-top:6px;background:#1a2235;border:1px solid rgba(255,255,255,0.12);border-radius:10px;overflow:hidden;z-index:999;min-width:160px;box-shadow:0 8px 24px rgba(0,0,0,0.4)';
@@ -1468,9 +1730,10 @@ document.addEventListener('DOMContentLoaded', () => {
     item.style.cssText = 'padding:9px 16px;cursor:pointer;font-size:12px;color:#8896B3;transition:all 0.1s';
     item.onmouseenter = () => item.style.background = 'rgba(255,255,255,0.05)';
     item.onmouseleave = () => item.style.background = '';
-    item.onclick = () => {
+    item.onclick = (e) => {
+      e.stopPropagation();
       activeDateRange = opt.days;
-      datePill.innerHTML = `📅 ${opt.label}`;
+      dateLabel.textContent = `📅 ${opt.label}`;
       dateMenu.style.display = 'none';
       dateDropdownOpen = false;
       renderAll();
@@ -1485,9 +1748,13 @@ document.addEventListener('DOMContentLoaded', () => {
     dateMenu.style.display = dateDropdownOpen ? 'block' : 'none';
     if (brandDropdownOpen) { brandDropdownOpen = false; document.getElementById('brandMenu').style.display = 'none'; }
   });
- 
+
   // Build brand dropdown
   const brandPill = document.getElementById('brandFilter');
+  // Wrap initial text in a span so we can update only the label, not the whole pill
+  brandPill.innerHTML = '<span class="filter-label">All brands ▾</span>';
+  const brandLabel = brandPill.querySelector('.filter-label');
+
   const brandMenu = document.createElement('div');
   brandMenu.id = 'brandMenu';
   brandMenu.style.cssText = 'display:none;position:absolute;top:100%;right:0;margin-top:6px;background:#1a2235;border:1px solid rgba(255,255,255,0.12);border-radius:10px;overflow:hidden;z-index:999;min-width:160px;box-shadow:0 8px 24px rgba(0,0,0,0.4)';
@@ -1502,9 +1769,11 @@ document.addEventListener('DOMContentLoaded', () => {
     item.appendChild(document.createTextNode(opt.label));
     item.onmouseenter = () => item.style.background = 'rgba(255,255,255,0.05)';
     item.onmouseleave = () => item.style.background = '';
-    item.onclick = () => {
+    item.onclick = (e) => {
+      e.stopPropagation();
       activeBrand = opt.val;
-      brandPill.innerHTML = `${opt.val ? `<span style="width:8px;height:8px;border-radius:50%;background:${BRAND_COLORS[opt.val]};display:inline-block;margin-right:4px"></span>` : ''}${opt.label} ▾`;
+      // Update only the label span, not the entire pill (which would destroy the menu)
+      brandLabel.innerHTML = `${opt.val ? `<span style="width:8px;height:8px;border-radius:50%;background:${BRAND_COLORS[opt.val]};display:inline-block;margin-right:4px;vertical-align:middle"></span>` : ''}${opt.label} ▾`;
       brandMenu.style.display = 'none';
       brandDropdownOpen = false;
       renderAll();
@@ -1519,17 +1788,17 @@ document.addEventListener('DOMContentLoaded', () => {
     brandMenu.style.display = brandDropdownOpen ? 'block' : 'none';
     if (dateDropdownOpen) { dateDropdownOpen = false; document.getElementById('dateMenu').style.display = 'none'; }
   });
- 
+
   // Close dropdowns on outside click
   document.addEventListener('click', () => {
     dateDropdownOpen = brandDropdownOpen = false;
     dateMenu.style.display = 'none';
     brandMenu.style.display = 'none';
   });
- 
+
   loadData();
 });
- 
+
 // ═══════════════════════════════════════════════════════
 // NAVIGATION
 // ═══════════════════════════════════════════════════════
@@ -1542,7 +1811,7 @@ const PAGE_TITLES = {
   eliminator:  ['Eliminator',              'Paid ads + organic social performance'],
   alerts:      ['Efficiency Flags',         'Ads + organic posts · auto-generated vs account averages'],
 };
- 
+
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
@@ -1554,7 +1823,7 @@ function showPage(id) {
   document.getElementById('pageTitle').textContent  = title;
   document.getElementById('pageSubtitle').textContent = sub;
 }
- 
+
 function switchTab(brand, tab, el) {
   el.closest('.tab-bar').querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
